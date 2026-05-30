@@ -190,7 +190,7 @@ export default function App() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full glass-nav border-t border-white/5 py-4 px-6 flex flex-col gap-4 shadow-xl">
+          <div className="md:hidden absolute top-full left-0 w-full bg-navy-900 border-t border-white/5 py-4 px-6 flex flex-col gap-4 shadow-2xl z-50">
             {['home', 'about', 'skills', 'works', 'contact'].map((item) => (
               <a key={item} href={`#${item}`} onClick={() => setMobileMenuOpen(false)} className="text-slate-300 font-medium capitalize py-2 border-b border-white/5 hover:text-cyan transition-colors">
                 {item}
@@ -476,13 +476,13 @@ export default function App() {
               <h2 className="text-3xl md:text-5xl font-syne font-bold text-white mb-4">Certifications</h2>
             </motion.div>
 
-            <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide" style={{ scrollbarWidth: 'none' }}>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {certifications.map((cert) => (
                 <motion.a 
                   key={cert.id}
                   href={cert.link} target="_blank" rel="noreferrer"
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="min-w-[300px] flex-shrink-0 snap-center glass p-6 rounded-3xl border border-white/10 hover:border-cyan/40 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group"
+                  className="glass p-4 md:p-6 rounded-2xl md:rounded-3xl border border-white/10 hover:border-cyan/40 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-tr from-cyan/0 via-cyan/0 to-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan text-xl border border-cyan/20 mb-4">
