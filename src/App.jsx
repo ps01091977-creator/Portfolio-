@@ -337,7 +337,7 @@ export default function App() {
                   <h3 className="text-2xl font-syne font-semibold text-white">Career Objective</h3>
                 </div>
                 <p className="text-slate-400 leading-relaxed text-lg">
-                  Currently pursuing a B.Tech in Computer Science and Engineering (AI/ML) at <span className="text-cyan font-medium">IMS Engineering College (2023–2027)</span>. I am seeking a challenging software engineer internship where I can apply my MERN stack skills and strong data structure foundations to build real-world systems and collaborate on high-impact digital solutions.
+                  Currently pursuing a B.Tech in Computer Science and Engineering at <span className="text-cyan font-medium">IMS Engineering College (2023–2027)</span>. I am seeking a challenging software engineer internship where I can apply my MERN stack skills and strong data structure foundations to build real-world systems and collaborate on high-impact digital solutions.
                 </p>
               </motion.div>
 
@@ -355,7 +355,7 @@ export default function App() {
                     <div className="flex items-center justify-center w-4 h-4 rounded-full border-4 border-navy-900 bg-purple-400 absolute left-0 md:left-1/2 -translate-x-1/2 z-10 shadow-[0_0_10px_#a855f7]"></div>
                     <div className="w-[calc(100%-2rem)] md:w-[calc(50%-2rem)] ml-8 md:ml-0 glass p-5 rounded-xl border border-white/5">
                       <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-syne font-bold text-white text-lg">B.Tech CSE (AI/ML)</h4>
+                        <h4 className="font-syne font-bold text-white text-lg">B.Tech CSE</h4>
                         <span className="px-2 py-1 rounded-md bg-purple-500/10 text-purple-300 text-xs font-bold border border-purple-500/20">8.35 CGPA</span>
                       </div>
                       <p className="text-slate-400 text-sm">IMS Engineering College</p>
