@@ -25,6 +25,7 @@ import {
   FiAward
 } from 'react-icons/fi';
 import { SiLeetcode } from 'react-icons/si';
+import heroImg from './assets/hero.png';
 
 // --- DATA ---
 const metrics = [
@@ -167,17 +168,19 @@ export default function App() {
       {/* Navbar */}
       <nav className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${scrolled ? 'glass-nav py-4' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-          <a href="#home" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-electric to-cyan flex items-center justify-center font-syne font-bold text-white text-xl shadow-lg shadow-electric/20 group-hover:shadow-electric/40 transition-all">
-              P
-            </div>
-            <span className="font-syne font-semibold text-lg text-white">
-              priyanshu<span className="text-cyan">.dev</span>
+          <a href="#home" className="flex items-center gap-3 group">
+            <img 
+              src={heroImg} 
+              alt="Priyanshu Shakya" 
+              className="w-10 h-10 rounded-full object-cover border-2 border-cyan shadow-lg shadow-cyan/20 group-hover:shadow-cyan/40 group-hover:scale-105 transition-all"
+            />
+            <span className="font-syne font-semibold text-lg text-white group-hover:text-cyan transition-colors">
+              Priyanshu Shakya
             </span>
           </a>
           
           <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            {['home', 'about', 'skills', 'works', 'contact'].map((item) => (
+            {['home', 'about', 'skills', 'projects', 'certificates', 'achievements', 'contact'].map((item) => (
               <li key={item}>
                 <a href={`#${item}`} className="hover:text-cyan transition-colors capitalize">{item}</a>
               </li>
@@ -198,7 +201,7 @@ export default function App() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-navy-900 border-t border-white/5 py-4 px-6 flex flex-col gap-4 shadow-2xl z-50">
-            {['home', 'about', 'skills', 'works', 'contact'].map((item) => (
+            {['home', 'about', 'skills', 'projects', 'certificates', 'achievements', 'contact'].map((item) => (
               <a key={item} href={`#${item}`} onClick={() => setMobileMenuOpen(false)} className="text-slate-300 font-medium capitalize py-2 border-b border-white/5 hover:text-cyan transition-colors">
                 {item}
               </a>
@@ -490,7 +493,7 @@ export default function App() {
         </section>
 
         {/* CERTIFICATIONS (Carousel Style) */}
-        <section className="py-24 bg-black/20 overflow-hidden">
+        <section id="certificates" className="py-24 bg-black/20 overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="mb-12">
               <h2 className="text-3xl md:text-5xl font-syne font-bold text-white mb-4">Certifications</h2>
