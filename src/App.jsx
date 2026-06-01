@@ -21,13 +21,14 @@ import {
   FiAlertCircle,
   FiLoader,
   FiMenu,
-  FiX
+  FiX,
+  FiAward
 } from 'react-icons/fi';
 import { SiLeetcode } from 'react-icons/si';
 
 // --- DATA ---
 const metrics = [
-  { value: 250, suffix: '+', label: 'DSA Problems', tag: 'LeetCode practice', color: 'from-blue-500 to-cyan-400' },
+  { value: 300, suffix: '+', label: 'DSA Problems', tag: 'LeetCode practice', color: 'from-blue-500 to-cyan-400' },
   { value: 4, suffix: '+', label: 'Major Projects', tag: 'Full stack development', color: 'from-purple-500 to-pink-500' },
   { value: 4, suffix: '', label: 'Certifications', tag: 'Continuous learning', color: 'from-emerald-400 to-cyan-500' },
   { value: 8.35, suffix: '', label: 'B.Tech CGPA', tag: 'Academic record', color: 'from-amber-400 to-orange-500', decimals: 2 }
@@ -81,6 +82,12 @@ const certifications = [
   { id: 2, title: 'MERN Full Stack', org: 'Udemy / Coursera', link: 'https://drive.google.com/file/d/11l7x9DQduy_A0QlhoExH67csJu7oU2Ly/view' },
   { id: 3, title: 'Python for Data Science', org: 'IBM', link: 'https://drive.google.com/file/d/1g66m7bvY9TnAVMIZJZG2qYv_ZkQ8c2eF/view' },
   { id: 4, title: 'Gen AI with AWS', org: 'AWS Training', link: 'https://drive.google.com/file/d/1fWtvpX8ABs6GEMzDI1b4o4r_gPRG9xWr/view' }
+];
+
+const achievements = [
+  { id: 1, icon: <SiLeetcode />, title: '300+ LeetCode Problems', desc: 'Strengthened Data Structures and Algorithms problem-solving skills.', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
+  { id: 2, icon: <FiCode />, title: 'HackData 2026', desc: 'Participated in a national-level hackathon organized by Shiv Nadar University.', color: 'text-electric', bg: 'bg-electric/10', border: 'border-electric/20' },
+  { id: 3, icon: <FiAward />, title: 'Academic Excellence', desc: 'Secured 1st rank in school and district rank in Class 12 board examinations.', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' }
 ];
 
 // --- ANIMATION VARIANTS ---
@@ -225,7 +232,7 @@ export default function App() {
                     sequence={[
                       'Software Engineer', 1500,
                       'MERN Developer', 1500,
-                      'DSA Enthusiast (250+)', 1500,
+                      'DSA Enthusiast (300+)', 1500,
                     ]}
                     wrapper="span"
                     speed={50}
@@ -278,7 +285,7 @@ export default function App() {
                       <p><span className="text-pink-500">const</span> <span className="text-blue-400">engineer</span> <span className="text-pink-500">=</span> <span className="text-yellow-300">{`{`}</span></p>
                       <p className="ml-4">name: <span className="text-green-400">'Priyanshu Shakya'</span>,</p>
                       <p className="ml-4">skills: [<span className="text-green-400">'MERN'</span>, <span className="text-green-400">'Data Structures'</span>],</p>
-                      <p className="ml-4">leetCodeSolved: <span className="text-orange-400">250+</span>,</p>
+                      <p className="ml-4">leetCodeSolved: <span className="text-orange-400">300+</span>,</p>
                       <p className="ml-4">passion: <span className="text-cyan">()</span> <span className="text-pink-500">=&gt;</span> <span className="text-green-400">'Building Scalable Systems'</span></p>
                       <p><span className="text-yellow-300">{`}`}</span>;</p>
                       <br/>
@@ -358,17 +365,30 @@ export default function App() {
                         <h4 className="font-syne font-bold text-white text-lg">B.Tech CSE</h4>
                         <span className="px-2 py-1 rounded-md bg-purple-500/10 text-purple-300 text-xs font-bold border border-purple-500/20">8.35 CGPA</span>
                       </div>
-                      <p className="text-slate-400 text-sm">IMS Engineering College</p>
+                      <p className="text-slate-400 text-sm mb-1">IMS Engineering College, Ghaziabad</p>
+                      <p className="text-slate-500 text-xs">2023–2027</p>
+                    </div>
+                  </div>
+                  <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div className="flex items-center justify-center w-4 h-4 rounded-full border-4 border-navy-900 bg-cyan absolute left-0 md:left-1/2 -translate-x-1/2 z-10 shadow-[0_0_10px_#22d3ee]"></div>
+                    <div className="w-[calc(100%-2rem)] md:w-[calc(50%-2rem)] ml-8 md:ml-0 glass p-5 rounded-xl border border-white/5">
+                      <div className="flex justify-between items-start mb-1">
+                        <h4 className="font-syne font-bold text-white text-lg">Class XII</h4>
+                        <span className="px-2 py-1 rounded-md bg-cyan/10 text-cyan text-xs font-bold border border-cyan/20">92%</span>
+                      </div>
+                      <p className="text-slate-400 text-sm mb-1">SRSVM School, Budaun, UP</p>
+                      <p className="text-slate-500 text-xs">2022–2023</p>
                     </div>
                   </div>
                   <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                     <div className="flex items-center justify-center w-4 h-4 rounded-full border-4 border-navy-900 bg-slate-500 absolute left-0 md:left-1/2 -translate-x-1/2 z-10"></div>
                     <div className="w-[calc(100%-2rem)] md:w-[calc(50%-2rem)] ml-8 md:ml-0 glass p-5 rounded-xl border border-white/5">
                       <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-syne font-bold text-white text-lg">Class XII</h4>
-                        <span className="px-2 py-1 rounded-md bg-white/5 text-slate-300 text-xs font-bold border border-white/10">92%</span>
+                        <h4 className="font-syne font-bold text-white text-lg">Class X</h4>
+                        <span className="px-2 py-1 rounded-md bg-white/5 text-slate-300 text-xs font-bold border border-white/10">86%</span>
                       </div>
-                      <p className="text-slate-400 text-sm">SRSVM School</p>
+                      <p className="text-slate-400 text-sm mb-1">SRSVM School, Budaun, UP</p>
+                      <p className="text-slate-500 text-xs">2020–2021</p>
                     </div>
                   </div>
                 </div>
@@ -494,6 +514,33 @@ export default function App() {
                     View Certificate <FiArrowRight />
                   </div>
                 </motion.a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ACHIEVEMENTS SECTION */}
+        <section id="achievements" className="py-24">
+          <div className="container mx-auto px-6 lg:px-12">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="mb-16 text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-syne font-bold text-white mb-6">Key <span className="gradient-text">Achievements</span></h2>
+              <p className="text-slate-400 text-lg">Milestones and recognitions that drive my passion for tech.</p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {achievements.map((ach) => (
+                <motion.div 
+                  key={ach.id}
+                  initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+                  className={`glass p-8 rounded-3xl border border-white/5 hover:${ach.border} transition-colors group relative overflow-hidden`}
+                >
+                  <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[currentColor] to-transparent ${ach.color} opacity-0 group-hover:opacity-100 transition-opacity`}></div>
+                  <div className={`w-14 h-14 rounded-2xl ${ach.bg} flex items-center justify-center ${ach.color} text-2xl border ${ach.border} mb-6 group-hover:scale-110 transition-transform`}>
+                    {ach.icon}
+                  </div>
+                  <h3 className="font-syne font-bold text-white text-xl mb-3">{ach.title}</h3>
+                  <p className="text-slate-400 leading-relaxed text-sm">{ach.desc}</p>
+                </motion.div>
               ))}
             </div>
           </div>
