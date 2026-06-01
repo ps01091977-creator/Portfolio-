@@ -59,8 +59,8 @@ const projects = [
       'Automated medical appointment scheduling with notification alerts'
     ],
     tech: ['MERN Stack', 'Redux', 'Tailwind CSS', 'Socket.io', 'WebRTC'],
-    github: 'https://github.com/PS_06',
-    demo: 'https://github.com/PS_06'
+    github: 'https://github.com/ps01091977-creator/Novacare.git',
+    demo: 'https://novacares.vercel.app'
   }
 ];
 
