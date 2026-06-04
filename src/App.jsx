@@ -306,8 +306,13 @@ export default function App() {
         </section>
 
         {/* STATS BAR */}
-        <section className="py-12 border-y border-white/5 bg-black/20">
+        <section className="py-16 border-y border-white/5 bg-black/20">
           <div className="container mx-auto px-6 lg:px-12">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="mb-12 text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-syne font-bold text-white mb-4">Impact in <span className="gradient-text">Numbers</span></h2>
+              <p className="text-slate-400 text-lg">A quick glance at my technical journey and academic milestones.</p>
+            </motion.div>
+
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {metrics.map((m, i) => (
                 <motion.div 
