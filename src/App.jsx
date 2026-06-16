@@ -116,7 +116,7 @@ const experiences = [
       'Engaged in software development activities under company mentorship.',
       'Collaborated on technology initiatives to build intelligent user experiences.'
     ],
-    link: '/internship_letter.pdf'
+    link: 'https://drive.google.com/file/d/1NOvTXApHxT_FJW2qyg340W_KeclzFgHi/view?usp=sharing'
   }
 ];
 
