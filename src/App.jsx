@@ -672,7 +672,7 @@ export default function App() {
                 <div className="space-y-4">
                   {[
                     { icon: <FiMail />, label: 'Email Support', value: 'ps01091977@gmail.com', href: 'mailto:ps01091977@gmail.com' },
-                    { icon: <FiPhone />, label: 'Direct Line', value: '+91 9876543210', href: 'tel:+919876543210' },
+                    { icon: <FiPhone />, label: 'Direct Line', value: '+91 9557401677', href: 'tel:+919557401677' },
                     { icon: <FiMapPin />, label: 'Current Base', value: 'Ghaziabad, India', href: '#' },
                   ].map((item, i) => (
                     <a key={i} href={item.href} target={item.href === '#' ? '_self' : '_blank'} rel="noreferrer" className="flex items-center gap-5 p-5 rounded-xl bg-navy-900/40 border border-white/5 hover:border-cyan/30 transition-all group">
