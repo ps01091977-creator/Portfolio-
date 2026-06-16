@@ -24,7 +24,11 @@ import {
   FiX,
   FiAward
 } from 'react-icons/fi';
-import { SiLeetcode } from 'react-icons/si';
+import { 
+  SiLeetcode, SiReact, SiNextdotjs, SiTailwindcss, SiRedux, 
+  SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, SiCplusplus, 
+  SiJavascript, SiPython, SiSocketdotio, SiGithub 
+} from 'react-icons/si';
 import heroImg from './assets/hero.png';
 
 // --- DATA ---
@@ -65,10 +69,20 @@ const projects = [
 ];
 
 const skills = [
-  { category: 'Frontend', icon: <FiCode />, items: ['React.js', 'Next.js', 'Tailwind CSS', 'Redux Toolkit'] },
-  { category: 'Backend', icon: <FiServer />, items: ['Node.js', 'Express.js', 'REST APIs', 'Socket.io'] },
-  { category: 'Database', icon: <FiDatabase />, items: ['MongoDB', 'PostgreSQL'] },
-  { category: 'Languages', icon: <FiFileText />, items: ['C++', 'JavaScript', 'Python'] },
+  { name: 'JavaScript', icon: <SiJavascript className="text-[#F7DF1E]" /> },
+  { name: 'C++', icon: <SiCplusplus className="text-[#00599C]" /> },
+  { name: 'Python', icon: <SiPython className="text-[#3776AB]" /> },
+  { name: 'React.js', icon: <SiReact className="text-[#61DAFB]" /> },
+  { name: 'Next.js', icon: <SiNextdotjs className="text-white" /> },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#06B6D4]" /> },
+  { name: 'Redux Toolkit', icon: <SiRedux className="text-[#764ABC]" /> },
+  { name: 'Node.js', icon: <SiNodedotjs className="text-[#339933]" /> },
+  { name: 'Express.js', icon: <SiExpress className="text-gray-300" /> },
+  { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" /> },
+  { name: 'PostgreSQL', icon: <SiPostgresql className="text-[#4169E1]" /> },
+  { name: 'Socket.io', icon: <SiSocketdotio className="text-white" /> },
+  { name: 'REST APIs', icon: <FiServer className="text-electric" /> },
+  { name: 'Git & GitHub', icon: <SiGithub className="text-white" /> }
 ];
 
 const goals = [
@@ -91,6 +105,21 @@ const achievements = [
   { id: 3, icon: <FiAward />, title: 'Academic Excellence', desc: 'Secured 1st rank in school and district rank in Class 12 board examinations.', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' }
 ];
 
+const experiences = [
+  {
+    id: 1,
+    role: 'Web Developer Intern (AI Capabilities)',
+    company: 'Shineworks Solutions Private Limited',
+    duration: '15 June 2026 – 14 August 2026',
+    desc: [
+      'Contributed to web development projects and AI-powered applications.',
+      'Engaged in software development activities under company mentorship.',
+      'Collaborated on technology initiatives to build intelligent user experiences.'
+    ],
+    link: '/internship_letter.pdf'
+  }
+];
+
 // --- ANIMATION VARIANTS ---
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -108,7 +137,7 @@ const staggerContainer = {
 };
 
 export default function App() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState({ type: null, text: '' });
   const [scrolled, setScrolled] = useState(false);
@@ -129,10 +158,10 @@ export default function App() {
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     setStatus({ type: null, text: '' });
-    const { name, email, message } = formData;
+    const { name, email, message, subject } = formData;
 
     if (!name.trim() || !email.trim() || !message.trim()) {
-      setStatus({ type: 'error', text: 'Please fill out all fields.' });
+      setStatus({ type: 'error', text: 'Please fill out all required fields.' });
       return;
     }
 
@@ -142,11 +171,11 @@ export default function App() {
       const response = await fetch(`${API_BASE}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() })
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), subject: subject.trim(), message: message.trim() })
       });
       const data = await response.json();
       if (response.ok && data.success) {
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', subject: '', message: '' });
         setStatus({ type: 'success', text: 'Message sent successfully!' });
       } else {
         setStatus({ type: 'error', text: data.message || 'Failed to send message.' });
@@ -180,7 +209,7 @@ export default function App() {
           </a>
           
           <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            {['home', 'about', 'skills', 'projects', 'certificates', 'achievements', 'contact'].map((item) => (
+            {['home', 'about', 'experience', 'skills', 'projects', 'certificates', 'achievements', 'contact'].map((item) => (
               <li key={item}>
                 <a href={`#${item}`} className="hover:text-cyan transition-colors capitalize">{item}</a>
               </li>
@@ -201,7 +230,7 @@ export default function App() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-navy-900 border-t border-white/5 py-4 px-6 flex flex-col gap-4 shadow-2xl z-50">
-            {['home', 'about', 'skills', 'projects', 'certificates', 'achievements', 'contact'].map((item) => (
+            {['home', 'about', 'experience', 'skills', 'projects', 'certificates', 'achievements', 'contact'].map((item) => (
               <a key={item} href={`#${item}`} onClick={() => setMobileMenuOpen(false)} className="text-slate-300 font-medium capitalize py-2 border-b border-white/5 hover:text-cyan transition-colors">
                 {item}
               </a>
@@ -254,6 +283,9 @@ export default function App() {
                 <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4">
                   <a href="#projects" className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-electric to-cyan text-white font-medium hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all flex items-center gap-2 group">
                     <FiCode className="group-hover:rotate-12 transition-transform" /> View Works
+                  </a>
+                  <a href="#experience" className="px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center gap-2 group">
+                    <FiBriefcase className="group-hover:-translate-y-1 transition-transform" /> Experience
                   </a>
                   <a href="https://drive.google.com/drive/u/0/folders/1n9BTyEPDuXLFlFRkZNldtz-2xdvM-ZTn" target="_blank" rel="noopener noreferrer" className="px-8 py-3.5 rounded-xl glass border border-electric/30 text-electric font-medium hover:bg-electric/10 transition-all flex items-center gap-2 group">
                     <FiFileText className="group-hover:-translate-y-1 transition-transform" /> My Resume
@@ -405,34 +437,85 @@ export default function App() {
           </div>
         </section>
 
+        {/* EXPERIENCE SECTION */}
+        <section id="experience" className="py-24">
+          <div className="container mx-auto px-6 lg:px-12">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="mb-16 text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-syne font-bold text-white mb-6">Professional <span className="gradient-text">Experience</span></h2>
+              <p className="text-slate-400 text-lg">My journey in the tech industry and real-world exposure.</p>
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto space-y-8">
+              {experiences.map((exp) => (
+                <motion.div 
+                  key={exp.id}
+                  initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
+                  className="glass p-8 md:p-10 rounded-3xl border border-white/5 hover:border-white/10 transition-all group shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute -top-24 -right-24 w-48 h-48 bg-cyan/20 rounded-full blur-[80px] pointer-events-none group-hover:bg-cyan/30 transition-all duration-500"></div>
+                  
+                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 relative z-10">
+                    <div className="flex-1">
+                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                        <h3 className="text-2xl md:text-3xl font-syne font-bold text-white tracking-tight">{exp.role}</h3>
+                        <span className="px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-semibold border border-cyan/20 uppercase tracking-wider">Internship</span>
+                      </div>
+                      
+                      <div className="flex flex-wrap items-center gap-3 mb-6 text-sm md:text-base">
+                        <div className="flex items-center gap-2 text-electric font-semibold">
+                          <FiBriefcase />
+                          <p>{exp.company}</p>
+                        </div>
+                        <span className="hidden md:inline-block text-slate-600">•</span>
+                        <p className="text-slate-400 font-mono bg-white/5 px-2 py-1 rounded-md border border-white/10">{exp.duration}</p>
+                      </div>
+                      
+                      <ul className="space-y-3 mb-8">
+                        {exp.desc.map((bullet, i) => (
+                          <li key={i} className="flex items-start gap-3 text-slate-300 leading-relaxed text-[15px]">
+                            <FiCheckCircle className="text-cyan mt-1 shrink-0 text-lg opacity-80" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="md:w-auto shrink-0 mt-2 md:mt-0">
+                      <a 
+                        href={exp.link} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium hover:bg-cyan hover:text-navy-900 hover:border-cyan transition-all text-sm w-full md:w-auto shadow-lg group/btn"
+                      >
+                        <FiFileText className="group-hover/btn:scale-110 transition-transform" /> View Offer Letter
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SKILLS SECTION */}
         <section id="skills" className="py-24 bg-black/20">
           <div className="container mx-auto px-6 lg:px-12">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="mb-16">
-              <h2 className="text-3xl md:text-5xl font-syne font-bold text-white mb-4">Technical <span className="gradient-text">Arsenal</span></h2>
-              <p className="text-slate-400 text-lg">Tools and technologies I use to build scalable applications.</p>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="mb-16 text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-syne font-bold text-white mb-6">Technical <span className="gradient-text">Skills</span></h2>
+              <p className="text-slate-400 text-lg">Tools and technologies I use to build scalable and high-performance applications.</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {skills.map((category, idx) => (
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3 md:gap-5 max-w-6xl mx-auto">
+              {skills.map((skill, idx) => (
                 <motion.div 
                   key={idx}
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="glass p-6 rounded-3xl border border-white/5 hover:border-cyan/30 transition-colors group"
+                  className="glass p-4 md:p-6 rounded-2xl border border-white/5 hover:border-cyan/30 hover:bg-white/5 transition-all group flex flex-col items-center justify-center text-center hover:-translate-y-2 shadow-lg hover:shadow-cyan/10"
                 >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center text-cyan text-lg border border-cyan/20 group-hover:scale-110 transition-transform">
-                      {category.icon}
-                    </div>
-                    <h3 className="font-syne font-semibold text-white text-xl">{category.category}</h3>
+                  <div className="text-4xl md:text-5xl mb-3 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.5)] transition-all duration-300">
+                    {skill.icon}
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {category.items.map((skill, i) => (
-                      <span key={i} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-slate-300 text-sm hover:bg-cyan/10 hover:text-cyan hover:border-cyan/20 transition-all cursor-default">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+                  <h3 className="font-syne font-semibold text-slate-200 group-hover:text-cyan transition-colors text-[11px] sm:text-sm leading-tight">{skill.name}</h3>
                 </motion.div>
               ))}
             </div>
@@ -556,75 +639,92 @@ export default function App() {
 
         {/* CONTACT SECTION */}
         <section id="contact" className="py-24">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-5 gap-12">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="lg:col-span-2">
-                <h2 className="text-3xl md:text-5xl font-syne font-bold text-white mb-6">Let's <span className="gradient-text">Connect</span></h2>
-                <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-                  I'm currently available for internships and open to exciting software engineering opportunities. Send me a message and let's build something amazing together.
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center mb-16">
+              <p className="text-cyan font-mono text-sm tracking-widest uppercase mb-3">// Communicate System</p>
+              <h2 className="text-3xl md:text-5xl font-syne font-bold text-white mb-4">Get In Touch</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-electric to-cyan mx-auto rounded-full"></div>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="w-full">
+                <h3 className="text-2xl md:text-3xl font-syne font-bold text-white mb-4">Let's discuss a project!</h3>
+                <p className="text-slate-400 text-base mb-10 leading-relaxed">
+                  Feel free to reach out if you are looking to hire a full-stack developer, want to collaborate on a project, or just want to chat about engineering patterns.
                 </p>
 
                 <div className="space-y-4">
                   {[
-                    { icon: <FiMail />, label: 'Email Me', value: 'ps01091977@gmail.com', href: 'mailto:ps01091977@gmail.com' },
-                    { icon: <FiPhone />, label: 'Call Me', value: '+91 9876543210', href: 'tel:+919876543210' },
-                    { icon: <FiLinkedin />, label: 'LinkedIn', value: 'Priyanshu Shakya', href: 'https://linkedin.com/in/priyanshu-shakya-304b07292' },
-                    { icon: <FiGithub />, label: 'GitHub', value: 'PS_06', href: 'https://github.com/PS_06' },
+                    { icon: <FiMail />, label: 'Email Support', value: 'ps01091977@gmail.com', href: 'mailto:ps01091977@gmail.com' },
+                    { icon: <FiPhone />, label: 'Direct Line', value: '+91 9876543210', href: 'tel:+919876543210' },
+                    { icon: <FiMapPin />, label: 'Current Base', value: 'Ghaziabad, India', href: '#' },
                   ].map((item, i) => (
-                    <a key={i} href={item.href} target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-2xl glass border border-white/5 hover:border-white/20 hover:bg-white/5 transition-all group">
-                      <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white text-xl border border-white/10 group-hover:scale-110 group-hover:bg-electric/20 group-hover:text-electric transition-all">
+                    <a key={i} href={item.href} target={item.href === '#' ? '_self' : '_blank'} rel="noreferrer" className="flex items-center gap-5 p-5 rounded-xl bg-navy-900/40 border border-white/5 hover:border-cyan/30 transition-all group">
+                      <div className="w-12 h-12 rounded-lg bg-black/40 flex items-center justify-center text-cyan text-xl border border-white/5 group-hover:bg-cyan/10 group-hover:border-cyan/20 transition-all shrink-0">
                         {item.icon}
                       </div>
                       <div>
-                        <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-0.5">{item.label}</div>
-                        <div className="text-slate-200 font-medium group-hover:text-white transition-colors">{item.value}</div>
+                        <div className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mb-1">{item.label}</div>
+                        <div className="text-slate-200 font-medium group-hover:text-cyan transition-colors">{item.value}</div>
                       </div>
                     </a>
                   ))}
                 </div>
               </motion.div>
 
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="lg:col-span-3">
-                <form onSubmit={handleContactSubmit} className="glass p-8 md:p-10 rounded-3xl border border-white/10 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-electric/20 rounded-full blur-[100px] pointer-events-none"></div>
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="w-full">
+                <form onSubmit={handleContactSubmit} className="bg-navy-900/40 p-8 md:p-10 rounded-xl border border-white/5 relative overflow-hidden shadow-2xl">
+                  {/* Decorative dot */}
+                  <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-cyan shadow-[0_0_8px_#22d3ee]"></div>
                   
                   <div className="space-y-6 relative z-10">
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div className="relative group">
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="name" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Your Name</label>
                         <input 
                           type="text" id="name"
-                          className="w-full bg-navy-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-transparent focus:border-electric focus:ring-1 focus:ring-electric transition-all peer" 
-                          placeholder="Name"
+                          className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none" 
+                          placeholder="Enter your name"
                           value={formData.name} onChange={(e) => handleInputChange(e, 'name')}
                           disabled={isSending} required 
                         />
-                        <label htmlFor="name" className="absolute left-5 -top-2.5 bg-navy-900 px-2 text-xs font-semibold text-electric transition-all peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-electric peer-focus:bg-navy-900 rounded-md">Your Name</label>
                       </div>
-                      <div className="relative group">
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="email" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Your Email</label>
                         <input 
                           type="email" id="email"
-                          className="w-full bg-navy-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-transparent focus:border-electric focus:ring-1 focus:ring-electric transition-all peer" 
-                          placeholder="Email"
+                          className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none" 
+                          placeholder="Enter your email"
                           value={formData.email} onChange={(e) => handleInputChange(e, 'email')}
                           disabled={isSending} required 
                         />
-                        <label htmlFor="email" className="absolute left-5 -top-2.5 bg-navy-900 px-2 text-xs font-semibold text-electric transition-all peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-electric peer-focus:bg-navy-900 rounded-md">Your Email</label>
                       </div>
                     </div>
 
-                    <div className="relative group">
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="subject" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Subject</label>
+                      <input 
+                        type="text" id="subject"
+                        className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none" 
+                        placeholder="Enter your subject"
+                        value={formData.subject} onChange={(e) => handleInputChange(e, 'subject')}
+                        disabled={isSending}
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="message" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Transmission Message</label>
                       <textarea 
                         id="message" rows="5"
-                        className="w-full bg-navy-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-transparent focus:border-electric focus:ring-1 focus:ring-electric transition-all peer resize-none" 
-                        placeholder="Message"
+                        className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none resize-none" 
+                        placeholder="Enter your message here..."
                         value={formData.message} onChange={(e) => handleInputChange(e, 'message')}
                         disabled={isSending} required
                       ></textarea>
-                      <label htmlFor="message" className="absolute left-5 -top-2.5 bg-navy-900 px-2 text-xs font-semibold text-electric transition-all peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-electric peer-focus:bg-navy-900 rounded-md">Your Message</label>
                     </div>
 
                     {status.text && (
-                      <div className={`p-4 rounded-xl flex items-center gap-3 text-sm font-semibold border ${status.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-red-500/10 border-red-500/20 text-red-400'}`}>
+                      <div className={`p-4 rounded-md flex items-center gap-3 text-sm font-semibold border ${status.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-red-500/10 border-red-500/20 text-red-400'}`}>
                         {status.type === 'success' ? <FiCheckCircle className="text-lg" /> : <FiAlertCircle className="text-lg" />}
                         {status.text}
                       </div>
@@ -633,12 +733,12 @@ export default function App() {
                     <button 
                       type="submit" 
                       disabled={isSending}
-                      className="w-full py-4 rounded-xl bg-gradient-to-r from-electric to-cyan text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group"
+                      className="w-full py-4 rounded-md bg-gradient-to-r from-cyan to-electric text-navy-900 font-bold text-sm tracking-wider uppercase hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group"
                     >
                       {isSending ? (
-                        <><FiLoader className="animate-spin text-xl" /> Transmitting...</>
+                        <><FiLoader className="animate-spin text-lg" /> Transmitting...</>
                       ) : (
-                        <>Launch Message <FiSend className="group-hover:-mt-1 group-hover:ml-1 transition-all" /></>
+                        <><FiSend className="text-lg" /> Transmit Message</>
                       )}
                     </button>
                   </div>
