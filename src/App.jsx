@@ -167,8 +167,10 @@ export default function App() {
 
     setIsSending(true);
     try {
-      // Use window.location.hostname so mobile devices hit your laptop's local IP instead of their own 'localhost'
-      const API_BASE = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5000`;
+      // Force IPv4 locally so we don't get stuck on IPv6 (::1) issues
+      let host = window.location.hostname;
+      if (host === 'localhost') host = '127.0.0.1';
+      const API_BASE = import.meta.env.VITE_API_URL || `http://${host}:5000`;
       const response = await fetch(`${API_BASE}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
