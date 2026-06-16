@@ -67,7 +67,7 @@ app.use((err, req, res, next) => {
 console.log("Backend restarted to load new environment variables.");
 
 // Start listening
-app.listen(PORT, () => {
-  console.log(`Server successfully started on port ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server successfully started on port ${PORT} (0.0.0.0)`);
   console.log(`CORS allowed origins: ${allowedOrigins.join(', ')}`);
 });
