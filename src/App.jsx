@@ -167,7 +167,8 @@ export default function App() {
 
     setIsSending(true);
     try {
-      const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      // Use window.location.hostname so mobile devices hit your laptop's local IP instead of their own 'localhost'
+      const API_BASE = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:5000`;
       const response = await fetch(`${API_BASE}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -302,10 +303,10 @@ export default function App() {
               >
                 <div className="relative w-full max-w-lg mx-auto animate-float">
                   {/* Decorative Elements */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-electric to-cyan rounded-2xl blur opacity-30 animate-pulse"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-electric to-cyan rounded-xl blur opacity-30 animate-pulse"></div>
                   
                   {/* Glass Code Editor Window */}
-                  <div className="relative glass rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+                  <div className="relative glass rounded-xl border border-white/10 overflow-hidden shadow-2xl">
                     {/* Editor Header */}
                     <div className="flex items-center px-4 py-3 border-b border-white/5 bg-black/40">
                       <div className="flex gap-2">
@@ -350,7 +351,7 @@ export default function App() {
                 <motion.div 
                   key={i} 
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="glass p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-colors relative overflow-hidden"
+                  className="glass p-6 rounded-xl border border-white/5 flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-colors relative overflow-hidden"
                 >
                   <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${m.color} opacity-50 group-hover:opacity-100 transition-opacity`}></div>
                   <h3 className={`text-4xl md:text-5xl font-syne font-bold mb-2 bg-gradient-to-r ${m.color} text-transparent bg-clip-text`}>
@@ -375,7 +376,7 @@ export default function App() {
             </motion.div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="glass p-8 rounded-3xl border border-white/5 relative overflow-hidden group">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="glass p-8 rounded-xl border border-white/5 relative overflow-hidden group">
                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-electric to-cyan opacity-50 group-hover:opacity-100 transition-opacity"></div>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center text-electric text-xl border border-electric/20">
@@ -388,7 +389,7 @@ export default function App() {
                 </p>
               </motion.div>
 
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="glass p-8 rounded-3xl border border-white/5 relative overflow-hidden group">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="glass p-8 rounded-xl border border-white/5 relative overflow-hidden group">
                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-500 to-pink-500 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl border border-purple-500/20">
@@ -450,7 +451,7 @@ export default function App() {
                 <motion.div 
                   key={exp.id}
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="glass p-8 md:p-10 rounded-3xl border border-white/5 hover:border-white/10 transition-all group shadow-2xl relative overflow-hidden"
+                  className="glass p-8 md:p-10 rounded-xl border border-white/5 hover:border-white/10 transition-all group shadow-2xl relative overflow-hidden"
                 >
                   <div className="absolute -top-24 -right-24 w-48 h-48 bg-cyan/20 rounded-full blur-[80px] pointer-events-none group-hover:bg-cyan/30 transition-all duration-500"></div>
                   
@@ -496,7 +497,7 @@ export default function App() {
                         href={exp.link} 
                         target="_blank" 
                         rel="noreferrer" 
-                        className="hidden md:block relative group/preview rounded-2xl overflow-hidden border border-white/10 hover:border-cyan/50 transition-all shadow-2xl"
+                        className="hidden md:block relative group/preview rounded-xl overflow-hidden border border-white/10 hover:border-cyan/50 transition-all shadow-2xl"
                       >
                         <img src="/offer-letter.jpg" alt="Offer Letter Preview" className="w-full h-auto object-cover opacity-80 group-hover/preview:opacity-100 group-hover/preview:scale-105 transition-all duration-700" />
                         <div className="absolute inset-0 bg-navy-900/60 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
@@ -526,7 +527,7 @@ export default function App() {
                 <motion.div 
                   key={idx}
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="glass p-4 md:p-6 rounded-2xl border border-white/5 hover:border-cyan/30 hover:bg-white/5 transition-all group flex flex-col items-center justify-center text-center hover:-translate-y-2 shadow-lg hover:shadow-cyan/10"
+                  className="glass p-4 md:p-6 rounded-xl border border-white/5 hover:border-cyan/30 hover:bg-white/5 transition-all group flex flex-col items-center justify-center text-center hover:-translate-y-2 shadow-lg hover:shadow-cyan/10"
                 >
                   <div className="text-4xl md:text-5xl mb-3 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.5)] transition-all duration-300">
                     {skill.icon}
@@ -551,7 +552,7 @@ export default function App() {
                 <motion.div 
                   key={proj.id}
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="group relative glass rounded-3xl overflow-hidden border border-white/10 hover:border-electric/50 transition-all duration-500"
+                  className="group relative glass rounded-xl overflow-hidden border border-white/10 hover:border-electric/50 transition-all duration-500"
                 >
                   {/* Project Graphic Placeholder / Overlay */}
                   <div className="h-48 w-full bg-gradient-to-br from-navy-800 to-black relative overflow-hidden border-b border-white/5">
@@ -609,7 +610,7 @@ export default function App() {
                   key={cert.id}
                   href={cert.link} target="_blank" rel="noreferrer"
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className="glass p-4 md:p-6 rounded-2xl md:rounded-3xl border border-white/10 hover:border-cyan/40 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group"
+                  className="glass p-4 md:p-6 rounded-xl md:rounded-xl border border-white/10 hover:border-cyan/40 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-tr from-cyan/0 via-cyan/0 to-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan text-xl border border-cyan/20 mb-4">
@@ -639,10 +640,10 @@ export default function App() {
                 <motion.div 
                   key={ach.id}
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-                  className={`glass p-8 rounded-3xl border border-white/5 hover:${ach.border} transition-colors group relative overflow-hidden`}
+                  className={`glass p-8 rounded-xl border border-white/5 hover:${ach.border} transition-colors group relative overflow-hidden`}
                 >
                   <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[currentColor] to-transparent ${ach.color} opacity-0 group-hover:opacity-100 transition-opacity`}></div>
-                  <div className={`w-14 h-14 rounded-2xl ${ach.bg} flex items-center justify-center ${ach.color} text-2xl border ${ach.border} mb-6 group-hover:scale-110 transition-transform`}>
+                  <div className={`w-14 h-14 rounded-xl ${ach.bg} flex items-center justify-center ${ach.color} text-2xl border ${ach.border} mb-6 group-hover:scale-110 transition-transform`}>
                     {ach.icon}
                   </div>
                   <h3 className="font-syne font-bold text-white text-xl mb-3">{ach.title}</h3>
