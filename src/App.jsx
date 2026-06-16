@@ -454,9 +454,9 @@ export default function App() {
                 >
                   <div className="absolute -top-24 -right-24 w-48 h-48 bg-cyan/20 rounded-full blur-[80px] pointer-events-none group-hover:bg-cyan/30 transition-all duration-500"></div>
                   
-                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 relative z-10">
+                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 relative z-10">
                     <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
                         <h3 className="text-2xl md:text-3xl font-syne font-bold text-white tracking-tight">{exp.role}</h3>
                         <span className="px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-semibold border border-cyan/20 uppercase tracking-wider">Internship</span>
                       </div>
@@ -470,24 +470,40 @@ export default function App() {
                         <p className="text-slate-400 font-mono bg-white/5 px-2 py-1 rounded-md border border-white/10">{exp.duration}</p>
                       </div>
                       
-                      <ul className="space-y-3 mb-8">
+                      <ul className="space-y-4 mb-4">
                         {exp.desc.map((bullet, i) => (
-                          <li key={i} className="flex items-start gap-3 text-slate-300 leading-relaxed text-[15px]">
-                            <FiCheckCircle className="text-cyan mt-1 shrink-0 text-lg opacity-80" />
-                            <span>{bullet}</span>
+                          <li key={i} className="flex items-start gap-3 text-slate-200 leading-relaxed text-[16px] md:text-[17px]">
+                            <FiCheckCircle className="text-cyan mt-1 shrink-0 text-xl opacity-80" />
+                            <span className="font-medium tracking-wide">{bullet}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     
-                    <div className="md:w-auto shrink-0 mt-2 md:mt-0">
+                    <div className="md:w-[260px] lg:w-[300px] shrink-0 mt-4 md:mt-0 flex flex-col">
+                      {/* Mobile Button */}
                       <a 
                         href={exp.link} 
                         target="_blank" 
                         rel="noreferrer" 
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium hover:bg-cyan hover:text-navy-900 hover:border-cyan transition-all text-sm w-full md:w-auto shadow-lg group/btn"
+                        className="md:hidden inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white font-medium hover:bg-cyan hover:text-navy-900 hover:border-cyan transition-all text-sm w-full shadow-lg group/btn"
                       >
                         <FiFileText className="group-hover/btn:scale-110 transition-transform" /> View Offer Letter
+                      </a>
+
+                      {/* Desktop Image Preview */}
+                      <a 
+                        href={exp.link} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="hidden md:block relative group/preview rounded-2xl overflow-hidden border border-white/10 hover:border-cyan/50 transition-all shadow-2xl"
+                      >
+                        <img src="/offer-letter.jpg" alt="Offer Letter Preview" className="w-full h-auto object-cover opacity-80 group-hover/preview:opacity-100 group-hover/preview:scale-105 transition-all duration-700" />
+                        <div className="absolute inset-0 bg-navy-900/60 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
+                          <div className="bg-cyan text-navy-900 px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 transform translate-y-4 group-hover/preview:translate-y-0 transition-all duration-300 shadow-xl">
+                            <FiFileText className="text-lg" /> Open PDF
+                          </div>
+                        </div>
                       </a>
                     </div>
                   </div>
