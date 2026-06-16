@@ -20,8 +20,8 @@ app.use(cors({
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     
-    // Allow local network IPs for mobile testing (e.g., 192.168.x.x, 10.x.x.x)
-    if (origin.startsWith('http://192.168.') || origin.startsWith('http://10.') || origin.startsWith('http://172.')) {
+    // Allow local network IPs and localhost
+    if (origin.startsWith('http://192.168.') || origin.startsWith('http://10.') || origin.startsWith('http://172.') || origin.startsWith('http://127.0.0.1')) {
       return callback(null, true);
     }
 
@@ -67,7 +67,7 @@ app.use((err, req, res, next) => {
 console.log("Backend restarted to load new environment variables.");
 
 // Start listening
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server successfully started on port ${PORT} (0.0.0.0)`);
+app.listen(PORT, () => {
+  console.log(`Server successfully started on port ${PORT}`);
   console.log(`CORS allowed origins: ${allowedOrigins.join(', ')}`);
 });
