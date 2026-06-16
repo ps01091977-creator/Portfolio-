@@ -283,17 +283,17 @@ export default function App() {
                   I am a dedicated Software Engineer specializing in full stack MERN systems and algorithm design. I translate complex code logic into intuitive, visually-refined user experiences.
                 </motion.p>
 
-                <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4">
-                  <a href="#projects" className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-electric to-cyan text-white font-medium hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all flex items-center gap-2 group">
+                <motion.div variants={fadeInUp} className="grid grid-cols-2 md:flex md:flex-wrap items-center gap-3 md:gap-4 w-full max-w-[400px] md:max-w-none">
+                  <a href="#projects" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
                     <FiCode className="group-hover:rotate-12 transition-transform" /> View Works
                   </a>
-                  <a href="#experience" className="px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center gap-2 group">
+                  <a href="#experience" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
                     <FiBriefcase className="group-hover:-translate-y-1 transition-transform" /> Experience
                   </a>
-                  <a href="https://drive.google.com/drive/u/0/folders/1n9BTyEPDuXLFlFRkZNldtz-2xdvM-ZTn" target="_blank" rel="noopener noreferrer" className="px-8 py-3.5 rounded-xl glass border border-electric/30 text-electric font-medium hover:bg-electric/10 transition-all flex items-center gap-2 group">
+                  <a href="https://drive.google.com/drive/u/0/folders/1n9BTyEPDuXLFlFRkZNldtz-2xdvM-ZTn" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-electric/30 text-electric font-medium hover:bg-electric/10 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
                     <FiFileText className="group-hover:-translate-y-1 transition-transform" /> My Resume
                   </a>
-                  <a href="#contact" className="px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center gap-2 group">
+                  <a href="#contact" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
                     Get in Touch <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </a>
                 </motion.div>
