@@ -55,16 +55,16 @@ const projects = [
   },
   {
     id: 2,
-    title: 'NOVACARE',
-    tag: 'Healthcare Management Platform',
+    title: 'NET SPHERE',
+    tag: 'PROFESSIONAL NETWORKING PLATFORM',
     features: [
-      'Comprehensive patient health records & history management',
-      'Real-time remote consultation through secure video calls',
-      'Automated medical appointment scheduling with notification alerts'
+      'Professional profile creation and management',
+      'Share posts, connect with professionals, and expand your network',
+      'Real-time messaging with secure authentication and media sharing'
     ],
-    tech: ['MERN Stack', 'Redux', 'Tailwind CSS', 'Socket.io', 'WebRTC'],
-    github: 'https://github.com/ps01091977-creator/Novacare.git',
-    demo: 'https://novacares.vercel.app'
+    tech: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Firebase', 'Tailwind CSS', 'Socket.io', 'Cloudinary', 'JWT'],
+    github: 'https://github.com/ps01091977-creator/Net-Sphere.git',
+    demo: 'https://net-sphere-ns.vercel.app'
   }
 ];
 
