@@ -290,7 +290,7 @@ export default function App() {
                   <a href="#experience" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
                     <FiBriefcase className="group-hover:-translate-y-1 transition-transform" /> Experience
                   </a>
-                  <a href="https://drive.google.com/drive/u/0/folders/1n9BTyEPDuXLFlFRkZNldtz-2xdvM-ZTn" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-electric/30 text-electric font-medium hover:bg-electric/10 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
+                  <a href="https://drive.google.com/file/d/1SBjJkN_J5WIK9KV1cqEUI0IKqFYOpAGB/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-electric/30 text-electric font-medium hover:bg-electric/10 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
                     <FiFileText className="group-hover:-translate-y-1 transition-transform" /> My Resume
                   </a>
                   <a href="#contact" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
