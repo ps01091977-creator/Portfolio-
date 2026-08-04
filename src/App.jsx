@@ -702,7 +702,7 @@ export default function App() {
                       <div className="flex flex-col gap-2">
                         <label htmlFor="name" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Your Name</label>
                         <input 
-                          type="text" id="name"
+                          type="text" id="name" autocomplete="name"
                           className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none" 
                           placeholder="Enter your name"
                           value={formData.name} onChange={(e) => handleInputChange(e, 'name')}
@@ -712,7 +712,7 @@ export default function App() {
                       <div className="flex flex-col gap-2">
                         <label htmlFor="email" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Your Email</label>
                         <input 
-                          type="email" id="email"
+                          type="email" id="email" autocomplete="email"
                           className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none" 
                           placeholder="Enter your email"
                           value={formData.email} onChange={(e) => handleInputChange(e, 'email')}
@@ -724,7 +724,7 @@ export default function App() {
                     <div className="flex flex-col gap-2">
                       <label htmlFor="subject" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Subject</label>
                       <input 
-                        type="text" id="subject"
+                        type="text" id="subject" autocomplete="off"
                         className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none" 
                         placeholder="Enter your subject"
                         value={formData.subject} onChange={(e) => handleInputChange(e, 'subject')}
