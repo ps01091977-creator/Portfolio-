@@ -693,7 +693,7 @@ export default function App() {
               </motion.div>
 
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="w-full">
-                <form onSubmit={handleContactSubmit} className="bg-navy-900/40 p-8 md:p-10 rounded-xl border border-white/5 relative overflow-hidden shadow-2xl">
+                <form onSubmit={handleContactSubmit} autoComplete="off" className="bg-navy-900/40 p-8 md:p-10 rounded-xl border border-white/5 relative overflow-hidden shadow-2xl">
                   {/* Decorative dot */}
                   <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-cyan shadow-[0_0_8px_#22d3ee]"></div>
                   
@@ -702,7 +702,7 @@ export default function App() {
                       <div className="flex flex-col gap-2">
                         <label htmlFor="name" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Your Name</label>
                         <input 
-                          type="text" id="name" autocomplete="name"
+                          type="text" id="name" autoComplete="name"
                           className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none" 
                           placeholder="Enter your name"
                           value={formData.name} onChange={(e) => handleInputChange(e, 'name')}
@@ -712,7 +712,7 @@ export default function App() {
                       <div className="flex flex-col gap-2">
                         <label htmlFor="email" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Your Email</label>
                         <input 
-                          type="email" id="email" autocomplete="email"
+                          type="email" id="email" autoComplete="email"
                           className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none" 
                           placeholder="Enter your email"
                           value={formData.email} onChange={(e) => handleInputChange(e, 'email')}
@@ -724,7 +724,7 @@ export default function App() {
                     <div className="flex flex-col gap-2">
                       <label htmlFor="subject" className="text-[10px] font-mono text-cyan uppercase tracking-widest font-semibold">Subject</label>
                       <input 
-                        type="text" id="subject" autocomplete="off"
+                        type="text" id="subject" autoComplete="off"
                         className="w-full bg-black/40 border border-white/10 rounded-md px-4 py-3 text-white font-inter focus:border-cyan focus:ring-1 focus:ring-cyan transition-all outline-none" 
                         placeholder="Enter your subject"
                         value={formData.subject} onChange={(e) => handleInputChange(e, 'subject')}
