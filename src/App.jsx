@@ -184,6 +184,7 @@ export default function App() {
         setStatus({ type: 'error', text: data.message || 'Failed to send message.' });
       }
     } catch (error) {
+      console.error(`Error connecting to backend at ${API_BASE}/api/contact:`, error);
       setStatus({ type: 'error', text: 'Server is unreachable. Please email directly.' });
     } finally {
       setIsSending(false);
