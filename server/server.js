@@ -13,6 +13,7 @@ const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
   'https://priyanshushakyaportfolio.vercel.app',
+  'https://portfolio-3-iz0y.onrender.com',
   process.env.CLIENT_URL // Vercel client URL
 ].filter(Boolean);
 
