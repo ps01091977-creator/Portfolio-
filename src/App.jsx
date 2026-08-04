@@ -55,16 +55,16 @@ const projects = [
   },
   {
     id: 2,
-    title: 'NET SPHERE',
-    tag: 'PROFESSIONAL NETWORKING PLATFORM',
+    title: 'StudySwap',
+    tag: 'COLLABORATIVE LEARNING PLATFORM',
     features: [
-      'Professional profile creation and management',
-      'Share posts, connect with professionals, and expand your network',
-      'Real-time messaging with secure authentication and media sharing'
+      'Developed StudySwap, a full-stack MERN-based collaborative learning platform enabling secure peer-to-peer interactions',
+      'Real-time chat, HD video conferencing, screen sharing, and collaborative whiteboard functionality',
+      'Leveraged Socket.IO and WebRTC to provide a highly interactive real-time workspace'
     ],
-    tech: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Firebase', 'Tailwind CSS', 'Socket.io', 'Cloudinary', 'JWT'],
-    github: 'https://github.com/ps01091977-creator/Net-Sphere.git',
-    demo: 'https://net-sphere-ns.vercel.app'
+    tech: ['MERN Stack', 'RESTful APIs', 'JWT Authentication', 'Firebase Authentication', 'Socket.io', 'WebRTC'],
+    github: 'https://github.com/ps01091977-creator/StudySwap.git',
+    demo: 'https://studyswap-1-x0ry.onrender.com'
   }
 ];
 
@@ -290,7 +290,7 @@ export default function App() {
                   <a href="#experience" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
                     <FiBriefcase className="group-hover:-translate-y-1 transition-transform" /> Experience
                   </a>
-                  <a href="https://drive.google.com/file/d/1SBjJkN_J5WIK9KV1cqEUI0IKqFYOpAGB/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-electric/30 text-electric font-medium hover:bg-electric/10 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
+                  <a href="https://drive.google.com/file/d/1suCGwg96w9zrer6n9Z2Ja49R33OtYafz/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-electric/30 text-electric font-medium hover:bg-electric/10 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
                     <FiFileText className="group-hover:-translate-y-1 transition-transform" /> My Resume
                   </a>
                   <a href="#contact" className="w-full md:w-auto px-3 md:px-8 py-3.5 rounded-xl glass border border-white/10 text-white font-medium hover:bg-white/5 transition-all flex items-center justify-center gap-2 group whitespace-nowrap text-[14px] md:text-base">
